@@ -1,19 +1,25 @@
 LOG_FILE = "sample_logs/auth.log"
 
-def get_failed_logins():
-    failed_lines = []
+def count_failed_logins_by_ip():
+    ip_counts = {}
 
     with open(LOG_FILE, "r") as file:
         for line in file:
             if "Failed password" in line:
-                failed_lines.append(line.strip())
+                parts = line.split()
+                ip = parts[parts.index("from") + 1]
 
-    return failed_lines
+                if ip in ip_counts:
+                    ip_counts[ip] += 1
+                else:
+                    ip_counts[ip] = 1
+
+    return ip_counts
 
 
 if __name__ == "__main__":
-    failed_logins = get_failed_logins()
+    results = count_failed_logins_by_ip()
 
-    print("=== FAILED LOGIN ATTEMPTS ===")
-    for log in failed_logins:
-        print(log)
+    print("=== FAILED LOGIN COUNT BY IP ===")
+    for ip, count in results.items():
+        print(f"{ip} -> {count} failed attempts")
