@@ -16,14 +16,19 @@ Proje, siber güvenlik alanında özellikle log analizi,
 saldırı tespiti ve olay farkındalığı (incident awareness)
 konularına giriş niteliğinde bir çalışma olarak tasarlanmıştır.
 
-#Projenin Kapsamı:
+---
+
+## Projenin Kapsamı
+
 - SSH tabanlı kimlik doğrulama logları üzerinde çalışır  
 - IP bazlı başarısız giriş denemelerini analiz eder  
 - Zaman penceresi (time window) ve eşik değer (threshold) mantığı kullanır  
-- Gerçek sistemlere müdahale etmez, yalnızca mevcut logları inceler  
+- Gerçek sistemlere müdahale etmez, yalnızca mevcut log dosyalarını inceler  
 
 Bu yaklaşım, saldırıların **nasıl gerçekleştirildiğinden çok**
 **nasıl fark edilebileceğine** odaklanır.
+
+---
 
 ## Etik Kullanım Bildirimi
 
@@ -36,17 +41,26 @@ bilgi edinmek, savunma mekanizmalarını anlamak ve
 güvenli sistem tasarımı konusunda farkındalık oluşturmaktır.
 
 ---
+
 ## Gereksinimler (Requirements)
 
 - Python 3.8 veya üzeri  
 - Standart Python kütüphaneleri  
-- Linux tabanlı SSH / auth log formatı (örnek log dosyaları proje içinde sağlanmaktadır)
+- Linux tabanlı SSH / auth log formatı  
+  (örnek log dosyaları proje içerisinde sağlanmaktadır)
 
 Herhangi bir üçüncü parti kütüphane zorunlu değildir.
-Proje, temel Python yetenekleri ile anlaşılabilir ve geliştirilebilir olacak şekilde tasarlanmıştır.
+Proje, temel Python yetenekleri ile anlaşılabilir ve geliştirilebilir
+olacak şekilde tasarlanmıştır.
 
- saldırıları bu yaklaşım ile her zaman tespit edilemeyebilir  
-- Düşük hızda (low-and-slow) gerçekleştirilen denemeler yanlış negatif sonuçlara yol açabilir  
+---
+
+## Sınırlamalar
+
+- Dağıtık (distributed) brute-force saldırıları bu yaklaşım ile
+  her zaman tespit edilemeyebilir  
+- Düşük hızda (low-and-slow) gerçekleştirilen denemeler,
+  yanlış negatif sonuçlara yol açabilir  
 - Bu proje, gerçek bir SIEM veya IDS sisteminin yerine geçmez  
 
 Bu sınırlamalar bilinçli olarak belirtilmiştir ve projenin
