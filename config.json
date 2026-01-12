@@ -1,0 +1,6 @@
+{
+  "log_file": "sample_logs/auth.log",
+  "threshold": 5,
+  "time_window_minutes": 1,
+  "output_directory": "reports"
+}

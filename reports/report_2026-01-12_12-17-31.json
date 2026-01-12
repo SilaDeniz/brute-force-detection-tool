@@ -1,0 +1,8 @@
+[
+    {
+        "ip": "192.168.1.10",
+        "failed_attempts": 5,
+        "time_window_minutes": 1,
+        "bruteforce_detected": true
+    }
+]
